@@ -141,7 +141,7 @@ utils = (function () {
         }
         var baseTimeLineTranslate = (-(new Date().getHours() * 60 + new Date().getMinutes()) / 1440 * 11 * timeLine.offsetWidth + (timeLine.offsetWidth / 2.5)) + "px";
         timeLine.style.transform = "translateX(" + baseTimeLineTranslate + ")";
-        programmScrollBlock.style.transform = "translate3d(" + baseTimeLineTranslate + ",0,0)";
+        programScrollBlock.style.transform = "translate3d(" + baseTimeLineTranslate + ",0,0)";
         for (let i in descriptionBlocks) {
             if (descriptionBlocks[i].style) {
                 descriptionBlocks[i].style.transform = "translate3d(" + baseTimeLineTranslate.slice(1) + ",0,0)";
@@ -180,9 +180,9 @@ utils = (function () {
             var newTranslate = oldTranslate + (e.pageY - startY);
             if (newTranslate > 0 || (newTranslate < (-channelBlock.offsetHeight * 11)))return;
             channelBlock.style.transform = "translateY(" + newTranslate + "px)";
-            var tr = programmScrollBlock.style.transform;
-            var programmXTransform = tr.slice(tr.indexOf("(") + 1, tr.indexOf("px") + 2);
-            programmScrollBlock.style.transform = "translate3d(" + programmXTransform + "," + newTranslate + "px,0)";
+            var tr = programScrollBlock.style.transform;
+            var programXTransform = tr.slice(tr.indexOf("(") + 1, tr.indexOf("px") + 2);
+            programScrollBlock.style.transform = "translate3d(" + programXTransform + "," + newTranslate + "px,0)";
 
 
         }
@@ -215,9 +215,9 @@ utils = (function () {
             if (newTranslate > 0 || (newTranslate < (-timeLine.offsetWidth * 11)))return;
             timeLine.style.transform = "translateX(" + newTranslate + "px)";
 
-            var tr = programmScrollBlock.style.transform;
-            var programmYTransform = tr.slice(tr.indexOf(",") + 2, tr.lastIndexOf(","));
-            programmScrollBlock.style.transform = "translate3d(" + newTranslate + "px," + programmYTransform + ",0)";
+            var tr = programScrollBlock.style.transform;
+            var programYTransform = tr.slice(tr.indexOf(",") + 2, tr.lastIndexOf(","));
+            programScrollBlock.style.transform = "translate3d(" + newTranslate + "px," + programYTransform + ",0)";
             for (var i in descriptionBlocks) {
                 if (descriptionBlocks[i].style) {
                     descriptionBlocks[i].style.transform = "translate3d(" + (-newTranslate) + "px,0,0)";
@@ -248,35 +248,35 @@ utils = (function () {
 
         for (var i in dataModule.channels) {
             var channel = _createChannel(dataModule.channels[i]);
-            var programmRow = _createProgramRow(dataModule.channels[i].programms);
+            var programRow = _createProgramRow(dataModule.channels[i].programs);
             channelScrollBlock.append(channel);
-            programmScrollBlock.appendChild(programmRow);
+            programScrollBlock.appendChild(programRow);
         }
     }
 
-    function _createProgramRow(programms) {
-        var programmRow = document.createElement("div");
-        var programmDescription = document.createElement("div");
-        programmDescription.classList.add("description");
-        programmRow.classList.add("programm_row");
-        for (var i in programms) {
-            var programm = document.createElement("div");
-            var programmText = document.createElement("span");
-            programm.classList.add("programm");
-            programmText.classList.add("programm_text");
-            programm.style.width = (programms[i].duration / 7200 * timeLine.offsetWidth - 30) + "px";
-            programmText.innerHTML = programms[i].title;
-            programm.title = programms[i].title;
-            programm.appendChild(programmText);
-            programm.dataChannelId = programms[i].channel_id;
-            programm.dataDescription = programms[i].title+"\n"+", "+(programms[i].program.country ? programms[i].program.country.title:"")+", "+programms[i].program.genres[0].title+"\n" +programms[i].program.description;
-            programm.onclick = function (event) {
-                return onProgrammClick(event, this);
+    function _createProgramRow(programs) {
+        var programRow = document.createElement("div");
+        var programDescription = document.createElement("div");
+        programDescription.classList.add("description");
+        programRow.classList.add("program_row");
+        for (var i in programs) {
+            var program = document.createElement("div");
+            var programText = document.createElement("span");
+            program.classList.add("program");
+            programText.classList.add("program_text");
+            program.style.width = (programs[i].duration / 7200 * timeLine.offsetWidth - 30) + "px";
+            programText.innerHTML = programs[i].title;
+            program.title = programs[i].title;
+            program.appendChild(programText);
+            program.dataChannelId = programs[i].channel_id;
+            program.dataDescription = programs[i].title+"\n"+", "+(programs[i].program.country ? programs[i].program.country.title:"")+", "+programs[i].program.genres[0].title+"\n" +programs[i].program.description;
+            program.onclick = function (event) {
+                return onprogramClick(event, this);
             };
-            programmRow.appendChild(programm);
-            programmRow.appendChild(programmDescription);
+            programRow.appendChild(program);
+            programRow.appendChild(programDescription);
         }
-        return programmRow
+        return programRow
     }
 
     function _createChannel(channelRec) {
