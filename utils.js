@@ -70,7 +70,6 @@ utils = (function () {
             case 1:
                 dayText = "ЗАВТРА";
                 break;
-                break;
             default:
                 dayText = getDayOfWeekByIndex(day.getDay(), true)
         }
@@ -143,15 +142,15 @@ utils = (function () {
         var baseTimeLineTranslate = (-(new Date().getHours() * 60 + new Date().getMinutes()) / 1440 * 11 * timeLine.offsetWidth + (timeLine.offsetWidth / 2.5)) + "px";
         timeLine.style.transform = "translateX(" + baseTimeLineTranslate + ")";
         programmScrollBlock.style.transform = "translate3d(" + baseTimeLineTranslate + ",0,0)";
-        for (var i in descriptionBlocks) {
+        for (let i in descriptionBlocks) {
             if (descriptionBlocks[i].style) {
                 descriptionBlocks[i].style.transform = "translate3d(" + baseTimeLineTranslate.slice(1) + ",0,0)";
             }
         }
 
-        var daysArray = document.getElementsByClassName("day_block"),
-            left=0;
-        for (var i=0;i<=2;i++) {
+        let daysArray = document.getElementsByClassName("day_block"),
+            left = 0;
+        for (let i=0; i<=2; i++) {
             left = left + daysArray[i].offsetWidth;
 
         }

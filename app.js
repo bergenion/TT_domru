@@ -48,14 +48,15 @@ function selectDay(clickedDay) {
 }
 
 function onProgrammClick(event,programm) {
+    let i;
     var programms = document.getElementsByClassName("programm_row");
     var descriptionBlock = programm.parentElement.getElementsByClassName("description")[0];
-    for (var i in descriptionBlocks) {
+    for (i in descriptionBlocks) {
         if (descriptionBlocks[i].classList) {
             descriptionBlocks[i].classList.remove("shown");
         }
     }
-    for (var i in programms){
+    for (i in programms){
         if (programms[i].classList) {
             programms[i].classList.remove("selected");
             for( var j in programms[i].childNodes){
