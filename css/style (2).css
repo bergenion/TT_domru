@@ -1,0 +1,267 @@
+body {
+    height: 100%;
+    position: fixed;
+    padding: 0;
+    width: 100%;
+    margin: 0;
+    font-size: 20px;
+    user-select: none;
+}
+
+.menu_label.selected{
+    border-bottom: 2px solid green;
+}
+
+.main_block{
+    background-color: #010101;
+    height:100%;
+    padding: 60px 2%;
+    font-family: 'PT Sans', Verdana, sans-serif;
+}
+
+
+.top_block {
+    height: 80px;
+    width: 100%;
+}
+
+.logo_and_date {
+    height: 100%;
+    display: inline-block;
+}
+
+.top_logo {
+    width: 80px;
+    height: 100%;
+    display: inline-block;
+    background-image: url(../img/logo_top80.png);
+}
+
+.date_and_time {
+    height: 100%;
+    width: 192px;
+    display: inline-block;
+    vertical-align: top;
+}
+
+.main_date {
+    display: block;
+    height: 20px;
+    color: #8b8b8b;
+    padding: 10px;
+    font-size: 20px;
+}
+
+
+.main_time {
+    display: inline-block;
+    height: 20px;
+    color: #d7d7d7;
+    padding: 10px;
+    font-size: 24px;
+}
+
+
+.tv_gid_logo {
+    height: 100%;
+    width: 204px;
+    background-image: url(../img/tv_gid_logo.PNG);
+    background-repeat: no-repeat;
+    display: inline-block;
+}
+
+.week_timeline {
+    height: 100%;
+    display: inline-block;
+    vertical-align: top;
+    width: calc(96% - 498px);
+    margin-right: 2%;
+    position: relative;
+    margin-left: 2%;
+    overflow: hidden;
+}
+
+.day_block.active {
+    /* border-bottom: 15px solid #ED1B24; */
+}
+
+.day_block:hover:not(.active) {
+    border-bottom: 15px solid #633335;
+
+
+}
+.day_block {
+    height: calc(100% - 35px);
+    /*width: 9%;*/
+    vertical-align: top;
+    display: inline-block;
+    color: #d7d7d7;
+    border-bottom: 15px solid #262626;
+    text-align: center;
+    padding-top: 20px;
+    cursor: pointer;
+    /*margin: -4px;*/
+}
+
+.day_block.short {
+    width: 7%;
+}
+
+.day_block.long {
+    width: 18.5%;
+}
+
+.moveable_underline {
+    background-color: #ED1B24;
+    height: 15px;
+    position: absolute;
+    bottom: 0;
+    width: 18.5%;
+    /*transform: translateX(267px);*/
+    transition: 0.5s cubic-bezier(0.49, 0.03, 0.68, 1.13);
+}
+
+
+.middle_block {
+    height: 60px;
+    width: 100%;
+    margin-top: 30px;
+}
+
+.middle_block label {
+    color: #d7d7d7;
+}
+
+.tv_label {
+    color: #d7d7d7;
+    width: 250px;
+    display: inline-block;
+    padding-left: 30px;
+    height: 100%;
+    vertical-align: top;
+}
+
+.timeline {
+    width: calc(100% - 288px);
+    height: 60px;
+    display: inline-block;
+    overflow: hidden;
+    white-space: nowrap;
+    user-select: none;
+}
+
+.time_label {
+    height: 100%;
+    color: #bbb;
+    font-size: 28px;
+    width: 25%;
+    cursor: pointer;
+    display: inline-block;
+    /* transform: translateX(-500px); */
+    user-select: none;
+}
+
+
+.bottom_block {
+    height: calc(100% - 280px);
+    width: 100%;
+}
+
+.channels_block {
+    height: calc(100% - 20px);
+    width: 260px;
+    display: inline-block;
+    overflow: hidden;
+    padding: 10px;
+    vertical-align: top;
+}
+
+
+.programs_block {
+    height: calc(100% - 20px);
+    width: calc(100% - 308px);
+    display: inline-block;
+    overflow: hidden;
+    padding: 10px 0 10px 0;
+}
+
+.program:hover ,
+.channel:hover {
+    background-color: #363636;
+}
+
+.channel {
+    width: calc(100% - 10px);
+    height: 50px;
+    padding: 5px;
+    color: #bbb;
+    cursor: pointer;
+    margin-bottom: 10px;
+    background-color: #272828;
+}
+
+.program_row.selected {
+    height: 190px;
+
+}
+.program_row {
+    width: calc(100% - 10px);
+    height: 50px;
+    white-space: nowrap;
+    color: #bbb;
+    cursor: pointer;
+    margin-bottom: 20px;
+}
+
+.channel_number {
+    display: inline-block;
+    height: 100%;
+    width: 60px;
+}
+
+.channel_name {
+    display: inline-block;
+    width: 182px;
+    height: 100%;
+}
+
+.program.selected {
+    border-color: #d7d7d7;
+}
+.program {
+    display: inline-block;
+    background-color: #272828;
+    height: 50px;
+    border: 5px solid #272828;
+    overflow: hidden;
+    text-align: center;
+    margin-right: 10px;
+}
+
+.scrollable_program_block {
+    height: 100%;
+    /*overflow: hidden;*/
+}
+
+.fdsfsdf{
+    /*width = duration\7200 * timeline.offsetWidth;*/
+}
+
+
+.program_text{
+    white-space: normal;
+}
+
+.description.shown {
+    display: block;
+
+}
+.description {
+    position: fixed;
+    margin-top: 5px;
+    width: 100%;
+    /*transform: translate3d(375.05px, -1px, 0px);*/
+    height: 130px;
+    display: none;
+    white-space: normal;
+}
